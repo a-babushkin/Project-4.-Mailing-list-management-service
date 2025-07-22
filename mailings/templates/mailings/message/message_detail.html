@@ -1,0 +1,11 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Полная информация о Сообщении{% endblock %}
+
+{% block content %}
+<div class="p-5 ">
+    <h1>{{ object.subject }}</h1>
+    <p class="lead"><i><b>Тело письма: </b></i>{{ object.letter_body }}</p>
+</div>
+<a href="{% url 'mailings:message_list' %}" class="btn btn-warning">К списку</a>
+{% endblock %}

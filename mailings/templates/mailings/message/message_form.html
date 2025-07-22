@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Добавление нового сообщения{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-6">
+        <div class="card">
+            <div class="card-header bg-info text-center">
+                <h2>Новое сообщение</h2>
+            </div>
+            <div class="card-body">
+                <div class="container mt-5">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Сохранить</button>
+                        <a href="{% url 'mailings:message_list' %}" class="btn btn-secondary">Отмена</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

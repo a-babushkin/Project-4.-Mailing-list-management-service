@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Список получателей рассылок{% endblock %}
+
+{% block content %}
+<div class="row text-center">
+    {% for recipient in object_list %}
+    <div class="col-4">
+        <div class="card mb-4 shadow bg-body-tertiary rounded">
+            <div class="card-body">
+                <h4 class="card-title">{{ recipient.full_name }}</h4>
+                <div class="text-start">
+                    <h6>{{ recipient.email }}</h6>
+                    <p class="card-text bg-green"><i>{{ recipient.comment|truncatechars:100 }}</i></p>
+                </div>
+                <div class="btn-group">
+                    <a href="{% url 'mailings:recipient_detail' recipient.id %}" class="btn btn-primary mt-3">Просмотреть</a>
+                    {% if user == recipient.owner %}
+                    <a href="{% url 'mailings:recipient_edit' recipient.id %}"
+                       class="btn btn-success mt-3">Изменить</a>
+                    <a href="{% url 'mailings:recipient_delete' recipient.id %}"
+                       class="btn btn-danger mt-3">Удалить</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

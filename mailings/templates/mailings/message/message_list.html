@@ -1,0 +1,25 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Список сообщений{% endblock %}
+
+{% block content %}
+<div class="row text-center">
+    {% for message in object_list %}
+    <div class="col-4">
+        <div class="card mb-4 shadow bg-body-tertiary rounded">
+            <div class="card-body">
+                <h4 class="card-title">{{ message.subject }}</h4>
+                <div class="text-start">
+                    <p class="card-text bg-green"><i>{{ message.letter_body|truncatechars:100 }}</i></p>
+                </div>
+                <div class="btn-group">
+                    <a href="{% url 'mailings:message_detail' message.id %}" class="btn btn-primary mt-3">Просмотреть</a>
+                    <a href="{% url 'mailings:message_edit' message.id %}" class="btn btn-success mt-3">Изменить</a>
+                    <a href="{% url 'mailings:message_delete' message.id %}" class="btn btn-danger mt-3">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

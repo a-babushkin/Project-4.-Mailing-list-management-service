@@ -1,0 +1,27 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Список рассылок{% endblock %}
+
+{% block content %}
+<div class="row text-center">
+    {% for mailinglist in object_list %}
+    <div class="col-4">
+        <div class="card mb-4 shadow bg-body-tertiary rounded">
+            <div class="card-body">
+                <h4 class="card-title">{{ mailinglist.message.subject }}</h4>
+                <div class="text-start">
+                    <p class="card-text bg-green"><i>{{ mailinglist.first_sending|date:"d m Y"  }}</i></p>
+                </div>
+                <div class="btn-group">
+                    <a href="{% url 'mailings:mailinglist_detail' mailinglist.id %}" class="btn btn-primary mt-3">Просмотреть</a>
+                    {% if user == mailinglist.owner %}
+                    <a href="{% url 'mailings:mailinglist_edit' mailinglist.id %}" class="btn btn-success mt-3">Изменить</a>
+                    <a href="{% url 'mailings:mailinglist_delete' mailinglist.id %}" class="btn btn-danger mt-3">Удалить</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
