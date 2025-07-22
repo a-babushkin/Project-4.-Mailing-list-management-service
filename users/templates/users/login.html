@@ -1,0 +1,13 @@
+{% extends 'guest_layout.html' %}
+
+{% block title %}Восстановление пароля{% endblock %}
+
+{% block content %}
+  <h2>Вход</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Войти</button>
+    <a href="{% url 'users:password_reset' %}" class="btn btn-link">Забыли пароль?</a>
+  </form>
+{% endblock %}

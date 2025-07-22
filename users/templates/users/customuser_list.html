@@ -1,0 +1,51 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Список пользователей{% endblock %}
+
+{% block content %}
+<h2 class="pt-3 pb-2 mb-3">Пользователи</h2>
+<div class="row text-center">
+    {% for user in object_list %}
+    <div class="col-5">
+        <div class="card mb-4 shadow bg-body-tertiary rounded">
+            <div class="card-body">
+                <h4 class="card-title">{{ user.email }}</h4>
+                {% if user.is_active %}
+                <span class="badge bg-success">Активен</span>
+                {% else %}
+                <span class="badge bg-danger">Заблокирован</span>
+                {% endif %}
+                <div class="text-start mb-3">
+                    <h6>{{ user.first_name }} {{ user.last_name }}</h6>
+                    <p class="card-text bg-green"><i>{{ user.phone_number }}</i></p>
+                    {% if user.avatar %}
+                    <img src="{{ user.avatar.url }}" class="card-img-top" alt="...">
+                    {% endif %}
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <a href="{% url 'users:user_detail' user.id %}"
+                           class="btn btn-primary">Посмотреть</a>
+                    </div>
+                    <div class="col-4">
+                        <a href="{% url 'users:profile' user.id %}"
+                           class="btn btn-success">Изменить</a>
+                    </div>
+                    <div class="col-4">
+                        {% if is_manager %}
+                        <form method="post" action="{% url 'users:block_user' user.pk %}">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">
+                                Блокировать
+                            </button>
+                        </form>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Полная информация о Пользователе{% endblock %}
+
+{% block content %}
+<div class="p-5 ">
+    <h4 class="card-title">Пользователь: {{ object.first_name }} {{ object.last_name }}</h4>
+    <p class="card-title"><strong>E-mail: </strong>{{ object.email }}</p>
+    {% if object.is_active %}
+    <span class="badge bg-success">Активен</span>
+    {% else %}
+    <span class="badge bg-danger">Заблокирован</span>
+    {% endif %}
+    {% if object.is_staff %}
+    <span class="badge bg-success">Сотрудник</span>
+    {% else %}
+    <span class="badge bg-warning">Не в штате</span>
+    {% endif %}
+    {% if object.is_superuser %}
+    <span class="badge bg-success">Администратор</span>
+    {% else %}
+    <span class="badge bg-warning">Пользователь</span>
+    {% endif %}
+    <p class="card-text"><i><strong>Телефон: </strong>{{ object.phone_number }}</i></p>
+    <p class="card-text"><i><strong>Страна: </strong>{{ object.country }}</i></p>
+    {% if object.avatar %}
+    <img src="{{ object.avatar.url }}" class="img-thumbnail w-25" alt="...">
+    {% endif %}
+</div>
+<a href="{% url 'users:users_list' %}" class="btn btn-warning">К списку</a>
+{% endblock %}
