@@ -8,6 +8,7 @@ from django.views.generic import DetailView, ListView, TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from users.services import get_is_manager
+from .forms import MailingListForm, MessageForm
 
 from .models import Attempt, MailingList, Message, Recipient
 from .services import send_mailinglist
@@ -113,14 +114,29 @@ class MessageListView(LoginRequiredMixin, ListView):
     model = Message
     template_name = "mailings/message/message_list.html"
 
+    def get_queryset(self):
+        queryset = cache.get("message_queryset")
+        if not queryset:
+            queryset = super().get_queryset()
+            if not get_is_manager(self.request.user, "Менеджеры"):
+                queryset = queryset.filter(owner=self.request.user)
+            cache.set("message_queryset", queryset, 60 * 15)
+        return queryset
+
 
 class MessageCreateView(LoginRequiredMixin, CreateView):
     """Создать новое сообщение"""
 
     model = Message
-    fields = ["subject", "letter_body"]
+    # fields = ["subject", "letter_body", "owner"]
+    form_class = MessageForm
     success_url = reverse_lazy("mailings:message_list")
     template_name = "mailings/message/message_form.html"
+
+    # Метод корректности введённых данных формы
+    def form_valid(self, form):
+        form.instance.owner = self.request.user
+        return super().form_valid(form)
 
 
 class MessageDetailView(LoginRequiredMixin, DetailView):
@@ -171,7 +187,7 @@ class MailingListCreateView(LoginRequiredMixin, CreateView):
     """Создание новой рассылки"""
 
     model = MailingList
-    fields = ["start_time", "end_time", "status", "message", "recipients"]
+    form_class = MailingListForm
     success_url = reverse_lazy("mailings:mailinglist_list")
     template_name = "mailings/mailinglist/mailinglist_form.html"
 
@@ -179,6 +195,9 @@ class MailingListCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
+
+    def get_form(self):
+        return self.form_class(user=self.request.user)
 
 
 class MailingListDetailView(LoginRequiredMixin, DetailView):

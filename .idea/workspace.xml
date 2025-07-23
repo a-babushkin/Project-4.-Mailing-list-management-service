@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1a9bb06e-7b60-4e53-98af-2adc09540396" name="Changes" comment="Mailings part">
+      <change afterPath="$PROJECT_DIR$/.idea/MailingManagementService.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mailings/migrations/0003_message_owner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/templates/main_nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/templates/main_nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mailings/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/mailings/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/users/templates/users/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/users/views.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;a-babushkin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/a-babushkin/Project-4.-Mailing-list-management-service.git&quot;,
+    &quot;accountId&quot;: &quot;454bb171-2765-4785-ae55-1a8a76cdfec2&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2ymP75ujyJ0lvNfwQ5XfXjrx7jX" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.csu.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "#1 on feature/Project-4.-Mailing-list-m…rvice",
+    "last_opened_file_path": "C:/Users/Admin/PycharmProjects/MailingManagementService/users/templates/users"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\users\templates\users" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\mailings" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\users\templates" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\users" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\mailings\templates" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\users\templates\users" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\users\templates\registration" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\mailings\templates\mailings\recipient" />
+      <recent name="C:\Users\Admin\PycharmProjects\MailingManagementService\mailings\templates\mailings" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="csu" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MailingManagementService" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/users/management/commands" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/users/management/commands/csu.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.csu" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-53e2683a6804-9cdd278e9d02-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-251.26094.141" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1a9bb06e-7b60-4e53-98af-2adc09540396" name="Changes" comment="" />
+      <created>1750436604884</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1750436604884</updated>
+    </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <option name="closed" value="true" />
+      <created>1753219572745</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1753219572745</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Make config">
+      <option name="closed" value="true" />
+      <created>1753219751161</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1753219751161</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Users part">
+      <option name="closed" value="true" />
+      <created>1753219868399</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1753219868399</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Mailings part">
+      <option name="closed" value="true" />
+      <created>1753219962242</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753219962242</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="feature/Project-4.-Mailing-list-management-service" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="First commit" />
+    <MESSAGE value="Make config" />
+    <MESSAGE value="Users part" />
+    <MESSAGE value="Mailings part" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mailings part" />
+  </component>
+</project>

@@ -26,7 +26,7 @@ class MessageForm(forms.ModelForm):
 
     class Meta:
         model = Message
-        fields = ["subject", "body"]
+        fields = ["subject", "letter_body"]
 
     # Стилизация полей формы
     def __init__(self, *args, **kwargs):
@@ -36,7 +36,7 @@ class MessageForm(forms.ModelForm):
         self.fields["subject"].widget.attrs.update({"class": "form-control", "placeholder": "Введите тему письма"})
 
         # ---------- Body -------------
-        self.fields["body"].widget.attrs.update({"class": "form-control", "placeholder": "Введите текст письма"})
+        self.fields["letter_body"].widget.attrs.update({"class": "form-control", "placeholder": "Введите текст письма"})
 
 
 # =================== Форма модели «Рассылка» =======================================================================
@@ -48,7 +48,7 @@ class MailingListForm(forms.ModelForm):
         fields = ["start_time", "end_time", "status", "message", "recipients"]
 
     # Стилизация полей формы
-    def __init__(self, *args, **kwargs):
+    def __init__(self, user=None, *args, **kwargs):
         super(MailingListForm, self).__init__(*args, **kwargs)
 
         # ---------- Start Time -------------
@@ -65,6 +65,10 @@ class MailingListForm(forms.ModelForm):
 
         # ---------- Recipients -------------
         self.fields["recipients"].widget.attrs.update({"class": "form-select"})
+
+        if user:
+            self.fields["message"].queryset = self.fields["message"].queryset.filter(owner=user)
+            self.fields["recipients"].queryset = self.fields["recipients"].queryset.filter(owner=user)
 
     # Валидатор для проверки соответствия дат
     def clean_end_time(self):

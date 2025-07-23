@@ -1,6 +1,6 @@
 from django.contrib.auth import login
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import Permission
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.models import Group
 from django.contrib.auth.views import LoginView
 from django.core.cache import cache
 from django.core.mail import send_mail
@@ -18,14 +18,14 @@ class UserListView(LoginRequiredMixin, ListView):
     """Список пользователей"""
 
     model = CustomUser
+    permission_required = "users.can_block_user"
 
     # Метод переопределения исходного набора данных
     def get_queryset(self):
         queryset = cache.get("users_queryset")
         if not queryset:
-            queryset = super().get_queryset()
-            if not get_is_manager(self.request.user, "Менеджеры"):
-                queryset = CustomUser.objects.filter()
+            managers = Group.objects.get(name="Менеджеры")
+            queryset = super().get_queryset().exclude(is_superuser=True).exclude(groups__in=[managers])
             cache.set("users_queryset", queryset, 60 * 15)  # Кешируем данные на 15 минут
 
         return queryset
@@ -54,8 +54,6 @@ class RegisterView(CreateView):
     def form_valid(self, form):
         user = form.save()
         login(self.request, user)
-        permission = Permission.objects.get(codename="delete_product")
-        user.user_permissions.remove(permission)
         self.send_welcome_email(user.email)
         return super().form_valid(form)
 

@@ -32,6 +32,13 @@ class Message(models.Model):
 
     subject = models.CharField(max_length=250, verbose_name="Тема письма")
     letter_body = models.TextField(verbose_name="Тело письма")
+    owner = models.ForeignKey(
+        CustomUser,
+        on_delete=models.CASCADE,
+        related_name="message_owner",
+        verbose_name="Владелец",
+        default=2
+    )
 
     def __str__(self):
         return f"{self.subject}"
