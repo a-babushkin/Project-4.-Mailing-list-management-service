@@ -1,0 +1,26 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Полная информация о Рассылке{% endblock %}
+
+{% block content %}
+<div class="p-5 ">
+    <h1>{{ object.message.subject }}</h1>
+    <p class="lead"><i><b>Начало рассылки: </b></i>{{ object.start_time }}</p>
+    <p class="lead"><i><b>Конец рассылки: </b></i>{{ object.end_time }}</p>
+    <p class="lead"><i><b>Статус рассылки: </b></i>{{ object.get_status_display }}</p>
+    <p class="lead"><i><b>Сообщение: </b></i>{{ object.message.subject }}</p>
+    <p class="lead"><i><b>Получатели: </b></i></p>
+    {% for recipient in object.recipients.all %}
+    <ul>
+        <li>{{ recipient.full_name }}</li>
+    </ul>
+    {% empty %}
+    <p>Нет получателей.</p>
+    {% endfor %}
+</div>
+<a href="{% url 'mailings:mailinglist_list' %}" class="btn btn-warning">К списку</a>
+<a class="btn btn-primary" href="{% url 'mailings:mailinglist_send' object.id %}">Запустить рассылку</a>
+{% if is_manager %}
+<a class="btn btn-danger" href="{% url 'mailings:mailinglist_cancel' object.id %}">Отменить рассылку</a>
+{% endif %}
+{% endblock %}
