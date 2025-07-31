@@ -1,0 +1,13 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Полная информация о Попытке рассылки{% endblock %}
+
+{% block content %}
+<div class="p-5 ">
+    <h1>{{ object.attempt_time|date:"d m Y" }}</h1>
+    <p class="lead"><i><b>Статус рассылки: </b></i>{{ object.get_result_display }}</p>
+    <p class="lead"><i><b>Ответ сервера: </b></i>{{ object.server_response }}</p>
+    <p class="lead"><i><b>Рассылка: </b></i>{{ object.mailing_list }}</p>
+</div>
+<a href="{% url 'mailings:attempt_list' %}" class="btn btn-warning">К списку</a>
+{% endblock %}

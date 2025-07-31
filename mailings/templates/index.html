@@ -1,0 +1,34 @@
+{% extends 'base_layout.html' %}
+
+{% block title %}Славная страница{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-5 m-auto">
+        <div class="card text-left">
+            <div class="card-header text-light bg-dark text-center">
+                Статистика рассылок пользователя {{ user }}
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Количество рассылок: <strong>{{ total_mailings }}</strong></li>
+                <li class="list-group-item">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-primary">- из них активных рассылок: <strong>{{ active_mailings }}</strong></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">Общее количество попыток: <strong>{{ total_attempts }}</strong></li>
+                <li class="list-group-item">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item text-success">- из них успешных попыток:
+                            <strong>{{ success_attempts }}</strong></li>
+                        <li class="list-group-item text-danger">- из них не удачных попыток:
+                            <strong>{{ failed_attempts }}</strong></li>
+                    </ul>
+                </li>
+                <li class="list-group-item">Количество уникальных получателей:
+                    <strong>{{ unique_recipients }}</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
